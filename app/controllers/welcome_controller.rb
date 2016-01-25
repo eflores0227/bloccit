@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    # binding.pry
   end
 
   def contact
