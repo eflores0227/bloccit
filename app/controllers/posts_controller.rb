@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new
     @post.title = params[:post][:title]
-    @post.body = params[:post][:body]
+    @post.copy = params[:post][:copy]
     if @post.save
       flash[:notice] = "Post was saved"
       redirect_to @post
