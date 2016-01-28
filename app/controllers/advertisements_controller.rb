@@ -1,12 +1,6 @@
 class AdvertisementsController < ApplicationController
   def index
     @advertisements = Advertisement.all
-    # binding.pry
-    # @advertisements.each_with_index do |advertisement, index|
-    #   if index % 5 == 0
-    #     advertisement.title = "SPAM"
-    #   end
-    # end
 
   end
 

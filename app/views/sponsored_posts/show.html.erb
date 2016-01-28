@@ -1,0 +1,14 @@
+<h1>SponsoredPost#show</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @sponsored_post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @sponsored_post.bod %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_topic_sponsored_post_path(@sponsored_post.topic, @sponsored_post) %> |
