@@ -8,6 +8,7 @@ RSpec.describe TopicsController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
     it "assigns my_topic to @topics" do
       get :index
       expect(assigns(:topics)).to eq([my_topic])

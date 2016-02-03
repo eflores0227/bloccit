@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'sponsored_post/edit'
 
+
   resources :questions
   resources :advertisements
   resources :topics do
@@ -12,8 +13,11 @@ Rails.application.routes.draw do
     resources :sponsored_posts, except: [:index]
   end
   resources :users, only: [:new, :create]
+  post "users/confirm" => "users#confirm"
+
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'welcome/about' => 'welcome#about'
-  get 'posts' => 'posts'
+  get 'faq' => 'welcome#about'
   root 'welcome#index'
 end
