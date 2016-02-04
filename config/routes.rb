@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'sponsored_post/edit'
 
-
+  resources :labels, only: [:show]
   resources :questions
   resources :advertisements
   resources :topics do
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :posts, only: [] do
     resources :comments, only: [:create, :destroy]
   end
-  
+
   resources :users, only: [:new, :create]
   post "users/confirm" => "users#confirm"
 
