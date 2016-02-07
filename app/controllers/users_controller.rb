@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
   def create
     @user = User.new
     @user.name = params[:user][:name]
@@ -16,5 +17,10 @@ class UsersController < ApplicationController
       flash.now[:alert] = "There was an error creating your account. Please try again."
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.visible_to(current_user)
   end
 end

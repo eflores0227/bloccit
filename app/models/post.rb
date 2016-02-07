@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
 
   default_scope { order('rank DESC') }
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
   scope :ordered_by_title, -> { unscoped.order('title ASC') }
   scope :ordered_by_reverse_created_at, -> { unscoped.order('created_at ASC')}
   validates :title, length: { minimum: 5 }, presence: true
