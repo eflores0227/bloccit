@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @new_comment = Comment.new
 
+    @topic = Topic.find(params[:topic_id])
+    @comment = @topic.comments.new(comment_params)
+
     if @comment.save
       flash[:notice] = "Comment saved successfully."
     else
@@ -21,6 +24,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:post_id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
 
