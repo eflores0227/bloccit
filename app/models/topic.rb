@@ -3,7 +3,7 @@ class Topic < ActiveRecord::Base
   has_many :sponsored_posts
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   scope :visible_to, -> (user) { user ? all : where(public: true) }
   scope :publicly_viewable, -> { where(public: true) }
